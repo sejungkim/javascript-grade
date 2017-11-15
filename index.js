@@ -10,3 +10,26 @@ function setScoreArray(gpaArr) {
         }
     }
 }
+
+function convertCredits(creditArr) {
+    for(var i=0; i<creditArr; i++){
+        var credits = creditArr[i];
+        switch(credits){
+            case 'A+': creditsArr[i] = 4.5;
+                break;
+            case 'A': creditsArr[i] = 4.0;
+                break;
+            case 'B+': creditsArr[i] = 3.5;
+                break;
+            case 'B': creditsArr[i] = 3.0;
+                break;
+            case 'C+': creditsArr[i] = 2.5;
+                break;
+            case 'C': creditsArr[i] = 2.0;
+                break;
+            case 'F': creditsArr[i] = 0;
+                break;
+        }
+    }
+}
+
