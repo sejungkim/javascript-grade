@@ -10,7 +10,7 @@ function setScoreArray() {
 }setScoreArray();
 
 function convertCredits() {
-    for(var i=0; i<creditsArr; i++){
+    for(var i=0; i<creditsArr.length; i++){
         var credits = creditsArr[i];
         switch(credits){
             case 'A+': creditsArr[i] = 4.5;
