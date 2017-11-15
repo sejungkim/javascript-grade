@@ -40,10 +40,7 @@ function calculateGpa() {
         gpSum += gpArr[i];
     }
 
-    var result = gpMultiple / gpSum;
-    console.log('당신의 총학점은 :'+ result);
+    var result = (gpMultiple / gpSum).toFixed(2);
+    console.log('총평점:'+ result);
+    console.log('이수학점:'+ gpSum);
 }calculateGpa();
-
-
-
-
