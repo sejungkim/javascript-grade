@@ -4,16 +4,14 @@ var gpArr = [];
 
 function setScoreArray() {
     for(var i=0; i<gpaArr.length; i++) {
-        for (var j = 0; j < gpaArr[0].length; j++) {
-            creditsArr.push(arr[i][j]);
-            gpArr.push(gpaArr[i][j]);
-        }
+            creditsArr.push(gpaArr[i][1]);
+            gpArr.push(gpaArr[i][2]);
     }
-}
+}setScoreArray();
 
 function convertCredits() {
-    for(var i=0; i<creditArr; i++){
-        var credits = creditArr[i];
+    for(var i=0; i<creditsArr; i++){
+        var credits = creditsArr[i];
         switch(credits){
             case 'A+': creditsArr[i] = 4.5;
                 break;
@@ -31,7 +29,7 @@ function convertCredits() {
                 break;
         }
     }
-}
+}convertCredits();
 
 function calculateGpa() {
     var gpSum = 0;
@@ -40,10 +38,11 @@ function calculateGpa() {
         gpSum += gpArr[i]*creditsArr[i];
         creditsSum += creditsArr[i];
     }
-
     console.log(creditsSum);
     var result = gpSum / creditsSum;
     console.log('당신의 총학점은 :'+ result);
-}
+}calculateGpa();
+
+
 
 
