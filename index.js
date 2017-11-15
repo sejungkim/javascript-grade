@@ -32,14 +32,15 @@ function convertCredits() {
 }convertCredits();
 
 function calculateGpa() {
+    var gpMultiple = 0;
     var gpSum = 0;
-    var creditsSum = 0;
-    for(var i=0; i<gpaArr.length; i++){
-        gpSum += gpArr[i]*creditsArr[i];
-        creditsSum += creditsArr[i];
+
+    for(var i=0; i<gpaArr.length; i++) {
+        gpMultiple += gpArr[i] * creditsArr[i];
+        gpSum += gpArr[i];
     }
-    console.log(creditsSum);
-    var result = gpSum / creditsSum;
+
+    var result = gpMultiple / gpSum;
     console.log('당신의 총학점은 :'+ result);
 }calculateGpa();
 
