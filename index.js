@@ -39,10 +39,10 @@ var data =  [
 ];
 
 
-function convertCredits() {
+function convertGrade() {
     for(var i=0; i<data.length; i++){
-        var credits = data[i].grade;
-        switch(credits){
+        var grade = data[i].grade;
+        switch(grade){
             case 'A+': data[i].grade = 4.5;
                 break;
             case 'A': data[i].grade = 4.0;
@@ -59,7 +59,7 @@ function convertCredits() {
                 break;
         }
     }
-}convertCredits();
+}convertGrade();
 
 function calculateGpa() {
     var gpMultiple = 0;
