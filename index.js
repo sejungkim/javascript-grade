@@ -18,7 +18,18 @@ var data =  [
         'name' : '미디어아트개론',
         'grade' : 'A+',
         'credit' : 3
+    },
+    {
+        'name' : '디자인론',
+        'grade' : 'B+',
+        'credit' : 3
+    },
+    {
+        'name' : '그래픽디자인및실습',
+        'grade' : 'C+',
+        'credit' : 3
     }
+
 ];
 
 
