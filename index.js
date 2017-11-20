@@ -95,7 +95,12 @@ function calculateMajor() {
     return majorResult;
 }
 
-(function() {
+function addLecture(lecture) {
+    data.push(lecture);
+    showResult();
+}
+
+function showResult() {
     var result = calculateGpa(4.5);
     var majorResult = calculateMajor();
     var convertResult = calculateGpa(4.0);
@@ -104,4 +109,7 @@ function calculateMajor() {
     console.log('전공평점:'+ majorResult);
     console.log('이수학점:'+ creditSum);
     console.log('4.0 학점으로 변환하는 경우 총평점은: '+ convertResult);
-})();
+}
+
+showResult();
+addLecture({'name' : '알고리즘', 'grade' : 'B', 'credit' : 3, 'bMajor' : true});
