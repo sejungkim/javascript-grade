@@ -38,48 +38,48 @@ var data =  [
 
 ];
 
+var grades= [];
+var creditSum = 0;
 
-function convertGrade() {
-    for(var i=0; i<data.length; i++){
-        var grade = data[i].grade;
-        switch(grade){
-            case 'A+': data[i].grade = 4.5;
-                break;
-            case 'A': data[i].grade = 4.0;
-                break;
-            case 'B+': data[i].grade = 3.5;
-                break;
-            case 'B': data[i].grade = 3.0;
-                break;
-            case 'C+': data[i].grade = 2.5;
-                break;
-            case 'C': data[i].grade = 2.0;
-                break;
-            case 'F': data[i].grade = 0;
-                break;
-        }
-    }
-}convertGrade();
+function calculateGpa(percentile) {
+    grades = [];
+    convertGrade(percentile);
 
-function calculateGpa() {
     var gpMultiple = 0;
     var gpSum = 0;
 
     for(var i=0; i<data.length; i++) {
-        gpMultiple += (data[i].credit) * (data[i].grade);
+        gpMultiple += (data[i].credit) * (grades[i]);
         gpSum += data[i].credit;
     }
 
-    var result = (gpMultiple / gpSum).toFixed(2);
-    var majorResult = calculateMajor();
+    creditSum = gpSum;
+    var res = (gpMultiple / gpSum).toFixed(2);
 
-    console.log('총평점:'+ result);
-    console.log('전공평점:'+ majorResult);
-    console.log('이수학점:'+ gpSum);
+    return res;
+}
 
-
-}calculateGpa();
-
+function convertGrade(percentile) {
+    for(var i=0; i<data.length; i++){
+        var grade = data[i].grade;
+        switch(grade){
+            case 'A+': grades.push(percentile);
+                break;
+            case 'A': grades.push(percentile-0.5);
+                break;
+            case 'B+': grades.push(percentile-1);
+                break;
+            case 'B': grades.push(percentile-1.5);
+                break;
+            case 'C+': grades.push(percentile-2.0);
+                break;
+            case 'C': grades.push(percentile-2.5);
+                break;
+            case 'F': grades.push(0);
+                break;
+        }
+    }
+}
 
 function calculateMajor() {
     var gpMultiple = 0;
@@ -87,12 +87,21 @@ function calculateMajor() {
 
     for(var i=0; i<data.length; i++){
         if(data[i].major){
-            gpMultiple += (data[i].credit) * (data[i].grade);
+            gpMultiple += (data[i].credit) * grades[i];
             gpSum += data[i].credit;
         }
-
-        var majorResult = (gpMultiple / gpSum).toFixed(2);
     }
-
+    var majorResult = (gpMultiple / gpSum).toFixed(2);
     return majorResult;
 }
+
+(function() {
+    var result = calculateGpa(4.5);
+    var majorResult = calculateMajor();
+    var convertResult = calculateGpa(4.0);
+
+    console.log('총평점:'+ result);
+    console.log('전공평점:'+ majorResult);
+    console.log('이수학점:'+ creditSum);
+    console.log('4.0 학점으로 변환하는 경우 총평점은: '+ convertResult);
+})();
