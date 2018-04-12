@@ -8,5 +8,13 @@ function getTotalCredit(data) {
   return totalCredit;
 }
 
+function getScoreFromGrade(grade) {
+  const gradeMap = ['A+', 'A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'];
+  const scoreMap45 = [4.5, 4.0, 3.5, 3.0, 2.5, 2.0, 1.5, 1.0, 0];
+
+  const score = scoreMap45[gradeMap.indexOf(grade)];
+  return score;
+}
+
 const data = [['데이터베이스', 'A', 3], ['교양영어', 'B+', 1], ['철학', 'A', 2]];
-console.log(getTotalCredit(data));
+console.log(getScoreFromGrade('F'));
