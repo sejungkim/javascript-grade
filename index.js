@@ -16,5 +16,19 @@ function getScoreFromGrade(grade) {
   return score;
 }
 
+function getGPA(data, totalCredit) {
+
+  const sumOfGrade = data.reduce(function (sum, arr) {
+    const grade = arr[1];
+    const score = getScoreFromGrade(grade);
+    const credit = arr[2];
+    sum += (score * credit);
+    return sum;
+  }, 0);
+
+  const GPA = (sumOfGrade / totalCredit).toFixed(2);
+  return GPA;
+}
+
 const data = [['데이터베이스', 'A', 3], ['교양영어', 'B+', 1], ['철학', 'A', 2]];
-console.log(getScoreFromGrade('F'));
+console.log(getGPA(data, 6));
