@@ -30,5 +30,13 @@ function getGPA(data, totalCredit) {
   return GPA;
 }
 
+function showGrade(data) {
+  const totalCredit = getTotalCredit(data);
+  const GPA = getGPA(data, totalCredit);
+  const resultMsg = `총 평점 ${GPA}, 이수학점 ${totalCredit}`;
+
+  return resultMsg;
+}
+
 const data = [['데이터베이스', 'A', 3], ['교양영어', 'B+', 1], ['철학', 'A', 2]];
-console.log(getGPA(data, 6));
+console.log(showGrade(data));
