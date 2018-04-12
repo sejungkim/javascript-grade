@@ -27,7 +27,6 @@ var data = [ ['데이터베이스', 'A', 3], ['교양영어', 'B+', 1], ['철학
 * 알파벳 점수를 숫자 점수로 바꿔주는 함수 : `getScoreFromGrade()`
 * 평점 계산 함수 : `getGPA()`
 * 총 이수학점 계산 함수 : `getTotalCredit()`
-* 출력할 결과 문구 만드는 함수 : `getResultMsg()`
 * 최종 결과 출력 함수 : `showGrade()`
 ----------
 ### 3. 코드 설계
@@ -38,22 +37,15 @@ function showGrade(data) {
   // 총 이수학점 구하기
   const GPA = getGPA(data, totalCredit);
   // 평점 구하기
-  const resultMsg = getResultMsg(totalCredit, GPA);
+  const resultMsg = '결과 메세지';
   // 구한 값으로 출력할 메세지 만들기
-  console.log(resultMsg);
+  return resultMsg;
 }
 ```
 #### 3.2. 알파벳 점수를 숫자 점수로 바꿔주는 함수
 ```javascript
 function getScoreFromGrade(grade) {
-  let score;
-  switch (grade) {
-    case 'A+':
-      score = 4.5;
-      // 숫자 점수 데이터 배열로 따로 만들기
-      break;
-      // ... 이런식으로
-  }
+  // 알파벳 점수와 숫자 점수 각각 배열로 데이터 만들어 매칭시키기
   return score;
 }
 ```
@@ -78,19 +70,6 @@ function getTotalCredit(data) {
     totalCredit += 데이터 학점 부분;
   }
   return totalCredit;
-}
-```
-#### 3.5. 출력할 결과 문구 만드는 함수
-```javascript
-function getResultMsg(totalCredit, GPA) {
-  let resultMsg = '';
-  if (totalCredit) {
-    resultMsg += 총 이수학점에 관련된 문구;
-  }
-  if (GPA) {
-    resultMsg += 평점에 관련된 문구;
-  }
-  return resultMsg;
 }
 ```
 ----------
