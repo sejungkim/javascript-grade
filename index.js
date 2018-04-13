@@ -9,10 +9,18 @@ function getTotalCredit(gradeDataArr) {
 }
 
 function getScoreFromGrade(grade) {
-  const gradeMap = ['A+', 'A', 'B+', 'B', 'C+', 'C', 'D+', 'D', 'F'];
-  const scoreMap45 = [4.5, 4.0, 3.5, 3.0, 2.5, 2.0, 1.5, 1.0, 0];
-
-  const score = scoreMap45[gradeMap.indexOf(grade)];
+  const gradeMap = {
+    'A+': 4.5,
+    'A': 4.0,
+    'B+': 3.5,
+    'B': 3.0,
+    'C+': 2.5,
+    'C': 2.0,
+    'D+': 1.5,
+    'D': 1.0,
+    'F': 0
+  }
+  const score = gradeMap[grade];
   return score;
 }
 
