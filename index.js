@@ -1,6 +1,6 @@
-function getTotalCredit(data) {
+function getTotalCredit(gradeDataArr) {
 
-  const totalCredit = data.reduce(function (sum, arr) {
+  const totalCredit = gradeDataArr.reduce(function (sum, arr) {
     const credit = arr[2];
     sum += credit;
     return sum;
@@ -16,9 +16,9 @@ function getScoreFromGrade(grade) {
   return score;
 }
 
-function getGPA(data, totalCredit) {
+function getGPA(gradeDataArr, totalCredit) {
 
-  const sumOfGrade = data.reduce(function (sum, arr) {
+  const sumOfGrade = gradeDataArr.reduce(function (sum, arr) {
     const grade = arr[1];
     const score = getScoreFromGrade(grade);
     const credit = arr[2];
@@ -30,9 +30,9 @@ function getGPA(data, totalCredit) {
   return GPA;
 }
 
-function showGrade(data) {
-  const totalCredit = getTotalCredit(data);
-  const GPA = getGPA(data, totalCredit);
+function showGrade(gradeDataArr) {
+  const totalCredit = getTotalCredit(gradeDataArr);
+  const GPA = getGPA(gradeDataArr, totalCredit);
   const resultMsg = `총 평점 ${GPA}, 이수학점 ${totalCredit}`;
 
   return resultMsg;
