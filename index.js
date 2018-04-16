@@ -16,28 +16,24 @@ const data = [
   }
 ];
 
+const gradeMap = {
+  'A+': 4.5,
+  'A': 4.0,
+  'B+': 3.5,
+  'B': 3.0,
+  'C+': 2.5,
+  'C': 2.0,
+  'D+': 1.5,
+  'D': 1.0,
+  'F': 0
+};
+
 function getTotalCredit(gradeDataList) {
   const totalCredit = gradeDataList.reduce(
     (creditSum, gradeData) => creditSum + gradeData.credit,
     0
   );
   return totalCredit;
-}
-
-function getScoreFromGrade(grade) {
-  const gradeMap = {
-    'A+': 4.5,
-    'A': 4.0,
-    'B+': 3.5,
-    'B': 3.0,
-    'C+': 2.5,
-    'C': 2.0,
-    'D+': 1.5,
-    'D': 1.0,
-    'F': 0
-  }
-  const score = gradeMap[grade];
-  return score;
 }
 
 function getGPA(gradeDataArr, totalCredit) {
