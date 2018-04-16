@@ -1,10 +1,26 @@
-function getTotalCredit(gradeDataArr) {
+const data = [
+  {
+    'name': '데이터베이스',
+    'grade': 'A',
+    'credit': 3
+  },
+  {
+    'name': '교양영어',
+    'grade': 'B+',
+    'credit': 2
+  },
+  {
+    'name': '철학',
+    'grade': 'B+',
+    'credit': 1
+  }
+];
 
-  const totalCredit = gradeDataArr.reduce(function (sum, arr) {
-    const credit = arr[2];
-    sum += credit;
-    return sum;
-  }, 0);
+function getTotalCredit(gradeDataList) {
+  const totalCredit = gradeDataList.reduce(
+    (creditSum, gradeData) => creditSum + gradeData.credit,
+    0
+  );
   return totalCredit;
 }
 
@@ -46,5 +62,4 @@ function showGrade(gradeDataArr) {
   return resultMsg;
 }
 
-const data = [['데이터베이스', 'A', 3], ['교양영어', 'B+', 1], ['철학', 'A', 2]];
-console.log(showGrade(data));
+console.log(getTotalCredit(data));
