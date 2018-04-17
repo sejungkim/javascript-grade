@@ -49,12 +49,12 @@ function getGPA(gradeDataList, totalCredit) {
   return GPA;
 }
 
-function showGrade(gradeDataArr) {
-  const totalCredit = getTotalCredit(gradeDataArr);
-  const GPA = getGPA(gradeDataArr, totalCredit);
+function showGrade(gradeDataList) {
+  const totalCredit = getTotalCredit(gradeDataList);
+  const GPA = getGPA(gradeDataList, totalCredit);
   const resultMsg = `총 평점 ${GPA}, 이수학점 ${totalCredit}`;
 
   return resultMsg;
 }
 
-console.log(getGPA(data, 6));
+console.log(showGrade(data));
