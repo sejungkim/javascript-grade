@@ -64,6 +64,13 @@ function getGPA(gradeDataList, totalCredit) {
   return GPA;
 }
 
+function getMajorDataList(gradeDataList) {
+  const majorDataList = gradeDataList.filter(
+    gradeData => gradeData.major === true
+  );
+  return majorDataList;
+}
+
 function showGrade(gradeDataList) {
   const totalCredit = getTotalCredit(gradeDataList);
   const GPA = getGPA(gradeDataList, totalCredit);
@@ -72,4 +79,4 @@ function showGrade(gradeDataList) {
   return resultMsg;
 }
 
-console.log(showGrade(data));
+console.log(getMajorDataList(data));
