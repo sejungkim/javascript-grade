@@ -2,17 +2,32 @@ const data = [
   {
     'name': '데이터베이스',
     'grade': 'A',
-    'credit': 3
+    'credit': 3,
+    'major': true
   },
   {
     'name': '교양영어',
-    'grade': 'B+',
-    'credit': 2
+    'grade': 'B',
+    'credit': 2,
+    'major': false
   },
   {
     'name': '철학',
+    'grade': 'C',
+    'credit': 1,
+    'major': false
+  },
+  {
+    'name': '운영체제',
     'grade': 'B+',
-    'credit': 1
+    'credit': 3,
+    'major': true
+  },
+  {
+    'name': '알고리즘',
+    'grade': 'A+',
+    'credit': 3,
+    'major': true
   }
 ];
 
