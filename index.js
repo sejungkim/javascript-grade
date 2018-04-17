@@ -16,7 +16,7 @@ const data = [
   }
 ];
 
-const gradeMap = {
+const gradePointMap = {
   'A+': 4.5,
   'A': 4.0,
   'B+': 3.5,
@@ -29,6 +29,7 @@ const gradeMap = {
 };
 
 function getTotalCredit(gradeDataList) {
+
   const totalCredit = gradeDataList.reduce(
     (creditSum, gradeData) => creditSum + gradeData.credit,
     0
@@ -36,17 +37,15 @@ function getTotalCredit(gradeDataList) {
   return totalCredit;
 }
 
-function getGPA(gradeDataArr, totalCredit) {
+function getGPA(gradeDataList, totalCredit) {
 
-  const sumOfGrade = gradeDataArr.reduce(function (sum, arr) {
-    const grade = arr[1];
-    const score = getScoreFromGrade(grade);
-    const credit = arr[2];
-    sum += (score * credit);
-    return sum;
+  const totalGradePoint = gradeDataList.reduce((gradeSum, gradeData) => {
+    const gradePoint = gradePointMap[gradeData.grade];
+    gradeSum += (gradePoint * gradeData.credit);
+    return gradeSum;
   }, 0);
 
-  const GPA = (sumOfGrade / totalCredit).toFixed(2);
+  const GPA = (totalGradePoint / totalCredit).toFixed(2);
   return GPA;
 }
 
@@ -58,4 +57,4 @@ function showGrade(gradeDataArr) {
   return resultMsg;
 }
 
-console.log(getTotalCredit(data));
+console.log(getGPA(data, 6));
