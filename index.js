@@ -1,3 +1,5 @@
+'use strict';
+
 const data = [
   {
     'name': '데이터베이스',
@@ -72,11 +74,20 @@ function getMajorDataList(gradeDataList) {
 }
 
 function showGrade(gradeDataList) {
+  // Total
   const totalCredit = getTotalCredit(gradeDataList);
   const GPA = getGPA(gradeDataList, totalCredit);
-  const resultMsg = `총 평점 ${GPA}, 이수학점 ${totalCredit}`;
+
+  // Major
+  const majorDataList = getMajorDataList(gradeDataList);
+  const majorTotalCredit = getTotalCredit(majorDataList);
+  const majorGPA = getGPA(majorDataList, majorTotalCredit);
+
+  const resultMsg = `총 평점 ${GPA}, 전공평점 ${majorGPA}, `
+    + `이수학점 ${totalCredit}, 전공이수학점 ${majorTotalCredit}`;
 
   return resultMsg;
 }
 
-console.log(getMajorDataList(data));
+console.log(showGrade(data));
+// 총 평점 3.67, 전공평점 4.00, 이수학점 12, 전공이수학점 9
