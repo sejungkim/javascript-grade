@@ -73,6 +73,12 @@ function getMajorDataList(gradeDataList) {
   return majorDataList;
 }
 
+function convertGPA(GPA, { stdScore }) {
+  const originStd = gradePointMap['A+'];
+  const convertedGPA = (GPA * stdScore / originStd).toFixed(2);
+  return convertedGPA;
+}
+
 function showGrade(gradeDataList) {
   // Total
   const totalCredit = getTotalCredit(gradeDataList);
@@ -83,11 +89,13 @@ function showGrade(gradeDataList) {
   const majorTotalCredit = getTotalCredit(majorDataList);
   const majorGPA = getGPA(majorDataList, majorTotalCredit);
 
+  const GPAFor40 = convertGPA(GPA, { stdScore: 4.0 });
+
   const resultMsg = `총 평점 ${GPA}, 전공평점 ${majorGPA}, `
-    + `이수학점 ${totalCredit}, 전공이수학점 ${majorTotalCredit}`;
+    + `이수학점 ${totalCredit}, 전공이수학점 ${majorTotalCredit}\n`
+    + `4.0 만점 기준 총 평점 ${GPAFor40}`;
 
   return resultMsg;
 }
 
 console.log(showGrade(data));
-// 총 평점 3.67, 전공평점 4.00, 이수학점 12, 전공이수학점 9
