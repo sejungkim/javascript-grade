@@ -47,7 +47,15 @@ var data = [
   ...
 ];
 showGrade(data);
-// "총평점 : 3.92, 전공평점:3.5, 이수학점:12, 전공이수학점:6"
+// 총 평점 3.67, 전공평점 4.00, 이수학점 12, 전공이수학점 9
+```
+
+#### 1.4. 20180418
+* 4.0 만점 기준으로 변환된 총 평점도 함께 출력하기
+```javascript
+showGrade(data);
+// 총 평점 3.67, 전공평점 4.00, 이수학점 12, 전공이수학점 9
+// 4.0 만점 기준 총 평점 3.26
 ```
 ----------
 ### 2. 생각
@@ -59,6 +67,7 @@ showGrade(data);
 #### 2.2. 구해야 하는 것
 * 총 평점 : 모든 과목의 (점수 * 학점)의 합 / 총 학점
 * 이수 학점 : 모든 학점의 합
+* 4.0 만점 변환 총 평점 : 총 평점 * 새로운 기준 만점 / 원래 기준 만점
 
 #### 2.3. 데이터
 * ~~배열-배열 구조 : 과목명, 점수, 학점~~
@@ -74,6 +83,7 @@ showGrade(data);
 * 총 이수학점 계산 함수 : `getTotalCredit()`
 * 최종 결과 출력 함수 : `showGrade()`
 * 전공만 뽑아 데이터를 만드는 함수 : `getMajorDataList()`
+* 4.5 만점 기준 평점을 다른 만점 기준 평점으로 변환하는 함수 : `getConvertGPA()`
 ----------
 ### 3. 코드 설계
 
@@ -91,6 +101,10 @@ function showGrade(data) {
   // 전공 이수학점 구하기
   const majorGPA = getGPA(majorDataList, majorTotalCredit);
   // 전공 평점 구하기
+
+
+  const convertGPA = getConvertGPA(GPA, {stdScore: 4.0});
+  // 변환 평점 구하기
 
   const resultMsg = '결과 메세지';
   // 구한 값으로 출력할 메세지 만들기
@@ -147,6 +161,15 @@ function getMajorDataList(data) {
   // major가 true임을 검사해서
   // 새로운 배열 - 객체로 이루어진 데이터를 만든다
   return majorDataList;
+}
+```
+
+#### 3.6. 4.5 만점 기준 평점을 다른 만점 기준 평점으로 변환하는 함수
+```javascript
+function getConvertGPA(GPA, {stdScore: 기준점수}) {
+  // 변환 평점 = GPA * 새로운 기준 만점 / 원래 기준 만점
+  // 계산된 변환 평점 소수 셋째 자리에서 반올림
+  return convertGPA;
 }
 ```
 ----------
