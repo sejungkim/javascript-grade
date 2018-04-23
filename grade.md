@@ -83,7 +83,7 @@ showGrade(data);
 * 총 이수학점 계산 함수 : `getTotalCredit()`
 * 최종 결과 출력 함수 : `showGrade()`
 * 전공만 뽑아 데이터를 만드는 함수 : `getMajorDataList()`
-* 4.5 만점 기준 평점을 다른 만점 기준 평점으로 변환하는 함수 : `getConvertGPA()`
+* 4.5 만점 기준 평점을 다른 만점 기준 평점으로 변환하는 함수 : `convertGPA()`
 ----------
 ### 3. 코드 설계
 
@@ -103,7 +103,7 @@ function showGrade(data) {
   // 전공 평점 구하기
 
 
-  const convertGPA = getConvertGPA(GPA, {stdScore: 4.0});
+  const GPAFor40 = convertGPA(GPA, {stdScore: 4.0});
   // 변환 평점 구하기
 
   const resultMsg = '결과 메세지';
@@ -166,10 +166,10 @@ function getMajorDataList(data) {
 
 #### 3.6. 4.5 만점 기준 평점을 다른 만점 기준 평점으로 변환하는 함수
 ```javascript
-function getConvertGPA(GPA, {stdScore: 기준점수}) {
+function convertGPA(GPA, {stdScore: 기준점수}) {
   // 변환 평점 = GPA * 새로운 기준 만점 / 원래 기준 만점
   // 계산된 변환 평점 소수 셋째 자리에서 반올림
-  return convertGPA;
+  return convertedGPA;
 }
 ```
 ----------
