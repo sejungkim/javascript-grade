@@ -66,6 +66,15 @@ showGrade(data);
 // 총 평점 3.53, 전공평점 3.75, 이수학점 15, 전공이수학점 12
 // 4.0 만점 기준 총 평점 3.14
 ```
+
+#### 1.6. 20180424
+* 최종 출력 결과가 2초 뒤에 나타나도록 만들기
+```javascript
+showGrade(data);
+// 아래 내용이 2초 뒤 출력
+// 총 평점 3.53, 전공평점 3.75, 이수학점 15, 전공이수학점 12
+// 4.0 만점 기준 총 평점 3.14
+```
 ----------
 ### 2. 생각
 
@@ -94,6 +103,7 @@ showGrade(data);
 * 전공만 뽑아 데이터를 만드는 함수 : `getMajorDataList()`
 * 4.5 만점 기준 평점을 다른 만점 기준 평점으로 변환하는 함수 : `convertGPA()`
 * 과목을 추가하는 함수 : `addLecture()`
+* 결과를 2초 뒤에 출력하는 함수 : `delayPrint()`
 ----------
 ### 3. 코드 설계
 
@@ -118,7 +128,8 @@ function showGrade(data) {
 
   const resultMsg = '결과 메세지';
   // 구한 값으로 출력할 메세지 만들기
-  return resultMsg;
+  delayPrint(resultMsg, {delayTime: 2000});
+  // 2초 뒤 결과 메세지 출력하기
 }
 ```
 
@@ -188,6 +199,13 @@ function convertGPA(GPA, {stdScore: 기준점수}) {
 function addLecture(객체 형태의 입력 값) {
   // 기존 데이터 data에 입력받은 객체 형태의 값을 추가
   // 리턴값 없음
+}
+```
+
+#### 3.8. 결과 메세지를 일정 시간 뒤에 출력하는 함수
+```javascript
+function delayPrint(message, {delayTime: 지연시간}) {
+  // setTimeout 이용해서 2초 뒤 출력
 }
 ```
 ----------
