@@ -84,6 +84,10 @@ function addLecture(lectureObj) {
   console.log(`과목이 추가되었습니다.`);
 }
 
+function delayPrint(message, { delayTime }) {
+  setTimeout(console.log, delayTime, message);
+}
+
 function showGrade(gradeDataList) {
   // Total
   const totalCredit = getTotalCredit(gradeDataList);
@@ -94,15 +98,16 @@ function showGrade(gradeDataList) {
   const majorTotalCredit = getTotalCredit(majorDataList);
   const majorGPA = getGPA(majorDataList, majorTotalCredit);
 
+  // GPA conversion
   const GPAFor40 = convertGPA(GPA, { stdScore: 4.0 });
 
+  // Result
   const resultMsg = `총 평점 ${GPA}, 전공평점 ${majorGPA}, `
     + `이수학점 ${totalCredit}, 전공이수학점 ${majorTotalCredit}\n`
     + `4.0 만점 기준 총 평점 ${GPAFor40}`;
 
-  return resultMsg;
+  delayPrint(resultMsg, { delayTime: 2000 });
 }
 
-console.log(showGrade(data));
 addLecture({ 'name': '자료구조', 'grade': 'B', 'credit': 3, 'major': true });
-console.log(showGrade(data));
+showGrade(data);
