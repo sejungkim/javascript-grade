@@ -57,6 +57,15 @@ showGrade(data);
 // 총 평점 3.67, 전공평점 4.00, 이수학점 12, 전공이수학점 9
 // 4.0 만점 기준 총 평점 3.26
 ```
+
+#### 1.5. 20180424
+* 과목 추가 기능 만들기
+```javascript
+addLecture({ 'name': '자료구조', 'grade': 'B', 'credit': 3, 'major': true });
+showGrade(data);
+// 총 평점 3.53, 전공평점 3.75, 이수학점 15, 전공이수학점 12
+// 4.0 만점 기준 총 평점 3.14
+```
 ----------
 ### 2. 생각
 
@@ -84,6 +93,7 @@ showGrade(data);
 * 최종 결과 출력 함수 : `showGrade()`
 * 전공만 뽑아 데이터를 만드는 함수 : `getMajorDataList()`
 * 4.5 만점 기준 평점을 다른 만점 기준 평점으로 변환하는 함수 : `convertGPA()`
+* 과목을 추가하는 함수 : `addLecture()`
 ----------
 ### 3. 코드 설계
 
@@ -170,6 +180,14 @@ function convertGPA(GPA, {stdScore: 기준점수}) {
   // 변환 평점 = GPA * 새로운 기준 만점 / 원래 기준 만점
   // 계산된 변환 평점 소수 셋째 자리에서 반올림
   return convertedGPA;
+}
+```
+
+#### 3.7. 과목을 추가하는 함수
+```javascript
+function addLecture(객체 형태의 입력 값) {
+  // 기존 데이터 data에 입력받은 객체 형태의 값을 추가
+  // 리턴값 없음
 }
 ```
 ----------
