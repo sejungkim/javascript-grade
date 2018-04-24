@@ -79,6 +79,11 @@ function convertGPA(GPA, { stdScore }) {
   return convertedGPA;
 }
 
+function addLecture(lectureObj) {
+  data.push(lectureObj);
+  console.log(`과목이 추가되었습니다.`);
+}
+
 function showGrade(gradeDataList) {
   // Total
   const totalCredit = getTotalCredit(gradeDataList);
@@ -98,4 +103,6 @@ function showGrade(gradeDataList) {
   return resultMsg;
 }
 
+console.log(showGrade(data));
+addLecture({ 'name': '자료구조', 'grade': 'B', 'credit': 3, 'major': true });
 console.log(showGrade(data));
