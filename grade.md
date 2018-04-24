@@ -61,7 +61,7 @@ showGrade(data);
 #### 1.5. 20180424
 * 과목 추가 기능 만들기
 ```javascript
-addLecture({ 'name': '자료구조', 'grade': 'B', 'credit': 3, 'major': true });
+addLecture(data, { 'name': '자료구조', 'grade': 'B', 'credit': 3, 'major': true });
 showGrade(data);
 // 총 평점 3.53, 전공평점 3.75, 이수학점 15, 전공이수학점 12
 // 4.0 만점 기준 총 평점 3.14
@@ -196,7 +196,7 @@ function convertGPA(GPA, {stdScore: 기준점수}) {
 
 #### 3.7. 과목을 추가하는 함수
 ```javascript
-function addLecture(객체 형태의 입력 값) {
+function addLecture(data, 객체 형태의 입력 값) {
   // 기존 데이터 data에 입력받은 객체 형태의 값을 추가
   // 리턴값 없음
 }

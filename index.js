@@ -68,7 +68,7 @@ function getGPA(gradeDataList, totalCredit) {
 
 function getMajorDataList(gradeDataList) {
   const majorDataList = gradeDataList.filter(
-    gradeData => gradeData.major === true
+    gradeData => gradeData.major
   );
   return majorDataList;
 }
@@ -79,8 +79,8 @@ function convertGPA(GPA, { stdScore }) {
   return convertedGPA;
 }
 
-function addLecture(lectureObj) {
-  data.push(lectureObj);
+function addLecture(gradeDataList, lectureObj) {
+  gradeDataList.push(lectureObj);
   console.log(`과목이 추가되었습니다.`);
 }
 
@@ -109,5 +109,5 @@ function showGrade(gradeDataList) {
   delayPrint(resultMsg, { delayTime: 2000 });
 }
 
-addLecture({ 'name': '자료구조', 'grade': 'B', 'credit': 3, 'major': true });
+addLecture(data, { 'name': '자료구조', 'grade': 'B', 'credit': 3, 'major': true });
 showGrade(data);
